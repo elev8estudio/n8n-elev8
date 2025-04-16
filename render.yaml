@@ -5,17 +5,24 @@ services:
     plan: free
     autoDeploy: true
     dockerfilePath: ./Dockerfile
-envVars:
-  - key: DB_TYPE
-    value: postgresdb
-  - key: DB_POSTGRESDB_HOST
-    value: aws-0-sa-east-1.pooler.supabase.com
-  - key: DB_POSTGRESDB_PORT
-    value: 5432
-  - key: DB_POSTGRESDB_DATABASE
-    value: postgres
-  - key: DB_POSTGRESDB_USER
-    value: postgres.nmvdzjyfoxwfylaziydt
-  - key: DB_POSTGRESDB_PASSWORD
-    value: Meli2020.
-
+    envVars:
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_HOST
+        value: aws-0-sa-east-1.pooler.supabase.com
+      - key: DB_POSTGRESDB_PORT
+        value: 5432
+      - key: DB_POSTGRESDB_DATABASE
+        value: postgres
+      - key: DB_POSTGRESDB_USER
+        value: postgres.nmvdzjyfoxwfylaziydt
+      - key: DB_POSTGRESDB_PASSWORD
+        value: Meli2020.
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: admin
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: Meli2020.
+      - key: N8N_ENCRYPTION_KEY
+        value: Meli2020.
