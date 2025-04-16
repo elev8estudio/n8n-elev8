@@ -26,7 +26,8 @@ services:
         value: Meli2020.
       - key: N8N_ENCRYPTION_KEY
         value: Meli2020.
-      # 🔽🔽 Recomendados para entorno de producción:
+      - key: WEBHOOK_URL
+        value: https://n8n-elev8.onrender.com
       - key: WEBHOOK_TUNNEL_URL
         value: https://n8n-elev8.onrender.com
       - key: N8N_HOST
