@@ -1,13 +1,14 @@
-FROM docker.n8n.io/n8nio/n8n
+# Usa una imagen base de Node.js que ya viene con todo instalado
+FROM node:18
 
-# Define directorio de trabajo
+# Crea y entra a la carpeta de trabajo
 WORKDIR /home/node/.n8n
 
-# Exponer el puerto
+# Instala n8n de forma global (¡esta línea es la clave!)
+RUN npm install -g n8n
+
+# Expone el puerto que usa n8n
 EXPOSE 5678
 
-# Copia variables de entorno si las usaras (no obligatorio si tienes render.yaml)
-# COPY .env.production .env
-
-# Comando por defecto
+# Comando para ejecutar n8n
 CMD ["n8n"]
