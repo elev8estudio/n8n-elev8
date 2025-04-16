@@ -1,12 +1,12 @@
 FROM docker.n8n.io/n8nio/n8n
 
+# Define directorio de trabajo
+WORKDIR /home/node/.n8n
+
 # Exponer el puerto
 EXPOSE 5678
 
-# Crear directorio de trabajo
-WORKDIR /home/node/.n8n
-
-# Copiar variables si decides no usar render.yaml (aunque ya lo haces bien)
+# Copia variables de entorno si las usaras (no obligatorio si tienes render.yaml)
 # COPY .env.production .env
 
 # Comando por defecto
