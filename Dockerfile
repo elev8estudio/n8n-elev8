@@ -1,19 +1,19 @@
-# Usa Node 20 con alpine (más ligero)
+# Imagen base recomendada
 FROM node:20-alpine
 
-# Establece el directorio de trabajo
+# Crear directorio de trabajo
 WORKDIR /home/node/.n8n
 
-# Instala la última versión estable de n8n (no uses latest por estabilidad)
+# Instalar versión estable reciente de n8n
 RUN npm install -g n8n@1.68.0
 
-# Variables de entorno mínimas para levantar n8n
+# Variables mínimas necesarias
 ENV N8N_HOST=0.0.0.0
 ENV N8N_PORT=5678
 ENV N8N_PROTOCOL=https
 
-# Expone el puerto interno
+# Exponer puerto
 EXPOSE 5678
 
-# Ejecuta primero la migración de base de datos y luego n8n
-CMD ["sh", "-c", "n8n migrate:up && n8n start"]
+# Ejecutar n8n con migración incluida
+CMD ["n8n", "start", "--tunnel", "--migrate"]
