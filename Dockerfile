@@ -1,15 +1,7 @@
-FROM node:20-alpine
+FROM n8nio/n8n:1.68.0
 
-WORKDIR /home/node/.n8n
-
-# Versión estable compatible con el comando migrate:up
-RUN npm install -g n8n@1.67.0
-
-ENV N8N_HOST=0.0.0.0
-ENV N8N_PORT=5678
-ENV N8N_PROTOCOL=https
-
+# Render necesita exponer el puerto correctamente
 EXPOSE 5678
 
-# Ejecuta migración antes de iniciar n8n
-CMD ["sh", "-c", "n8n migrate:up && n8n start"]
+# No sobreescribimos CMD porque la imagen oficial ya ejecuta correctamente:
+# `n8n start` (y maneja migraciones automáticas si está bien configurado)
