@@ -38,7 +38,3 @@ services:
         value: "true"
       - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
         value: "true"
-      # Opcional para evitar que workflows con errores se activen solos
-      - key: N8N_DISABLE_PRODUCTION_MAIN_PROCESS
-        value: "false"
-
