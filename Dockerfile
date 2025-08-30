@@ -1,14 +1,17 @@
-# Usa una imagen base de Node.js
+# Usa Node 18, compatible con n8n
 FROM node:18
 
-# Crea y entra en el directorio de trabajo
-WORKDIR /home/node/.n8n
+# Crea directorio de trabajo
+WORKDIR /data
 
-# Instala n8n de forma global (usa una versión específica y estable si quieres más control)
-RUN npm install -g n8n@1.44.0
+# Instala la versión exacta que soporta tu base de datos
+RUN npm install -g n8n@1.106.3
 
-# Expone el puerto que n8n usa
+# Agrega nodos personalizados que necesitas
+RUN npm install -g @n8n/n8n-nodes-langchain
+
+# Expón el puerto por defecto de n8n
 EXPOSE 5678
 
-# Comando para ejecutar n8n
-CMD ["n8n", "start"]
+# Inicia n8n (sin --migrate)
+CMD ["n8n"]
