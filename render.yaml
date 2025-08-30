@@ -17,7 +17,7 @@ services:
       - key: DB_POSTGRESDB_USER
         value: postgres.nmvdzjyfoxwfylaziydt
       - key: DB_POSTGRESDB_PASSWORD
-        value: Meli2020..
+        value: Meli2020.
       - key: N8N_BASIC_AUTH_ACTIVE
         value: "true"
       - key: N8N_BASIC_AUTH_USER
