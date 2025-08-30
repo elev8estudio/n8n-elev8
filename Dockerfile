@@ -5,7 +5,7 @@ FROM node:20.19
 WORKDIR /data
 
 # Instala n8n
-RUN npm install -g n8n@1.106.3
+RUN npm install -g n8n@1.108.2
 
 # Agrega nodos personalizados si los necesitas
 # (descomenta y modifica según tu caso)
