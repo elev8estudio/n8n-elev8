@@ -1,7 +1,14 @@
-FROM n8nio/n8n:1.68.0
+# Usa una imagen base de Node.js
+FROM node:18
 
-# Render necesita exponer el puerto correctamente
+# Crea y entra en el directorio de trabajo
+WORKDIR /home/node/.n8n
+
+# Instala n8n de forma global (usa una versión específica y estable si quieres más control)
+RUN npm install -g n8n@1.44.0
+
+# Expone el puerto que n8n usa
 EXPOSE 5678
 
-# No sobreescribimos CMD porque la imagen oficial ya ejecuta correctamente:
-# `n8n start` (y maneja migraciones automáticas si está bien configurado)
+# Comando para ejecutar n8n
+CMD ["n8n", "start"]
