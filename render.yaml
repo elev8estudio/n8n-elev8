@@ -2,7 +2,7 @@ services:
   - type: web
     name: n8n-elev8
     env: docker
-    plan: free
+    plan: starter
     autoDeploy: true
     dockerfilePath: ./Dockerfile
     envVars:
